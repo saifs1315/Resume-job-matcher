@@ -1,0 +1,9 @@
+streamlit
+langchain-community>=0.0.30
+langchain-core>=0.1.30
+langchain-google-genai>=0.0.10
+langchain-huggingface
+pypdf
+faiss-cpu
+sentence-transformers
+google-generativeai
