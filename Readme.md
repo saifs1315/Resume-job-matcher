@@ -1,164 +1,87 @@
 📄 Resume & Job Description Matcher Bot with AI Insights 🤖
-This project is an interactive web application designed to help job seekers assess how well their resume aligns with a specific job description. Leveraging advanced Natural Language Processing (NLP) and Large Language Models (LLMs), it provides both a numerical match score and a detailed AI-generated analysis, offering actionable insights for tailoring your application.
+An interactive, AI-powered web app to help job seekers evaluate how well their resume aligns with a specific job description. This tool combines Natural Language Processing (NLP) and Large Language Models (LLMs) to deliver a match score and AI-generated insights to help tailor applications for better results.
 
-This bot is built entirely using free and open-source technologies, making it an excellent portfolio piece.
-
+Built entirely with free and open-source technologies, it’s perfect as a portfolio project or practical career tool.
 ✨ Features
-PDF Resume Upload: Easily upload your resume in PDF format.
-
-Job Description Input: Paste the job description directly into the application.
-
-AI-Generated Match Score: Get an overall compatibility score (0-100%) for your resume against the job description, powered by an LLM's reasoning.
-
-Detailed AI Analysis: Receive a comprehensive breakdown from the AI, including:
-
-Overall compatibility assessment (e.g., "Good Alignment", "Some Gaps").
-
-Key strengths identified in your resume.
-
-Areas for development or missing requirements.
-
-Actionable tailoring suggestions to improve your resume for that specific job.
-
-Relevant Sections Highlighting: See the most relevant parts of your resume that the AI considered for its analysis, along with their individual relevance scores.
-
+•	📄 PDF Resume Upload: Easily upload your resume in PDF format.
+•	📝 Job Description Input: Paste any job description directly into the application.
+•	📊 AI-Generated Match Score: Get a 0–100% compatibility score using LLM-based reasoning.
+•	🧠 Detailed AI Analysis: Receive comprehensive breakdowns, including:
+- Compatibility assessment (e.g., "Good Alignment", "Some Gaps")
+- Key strengths in your resume
+- Missing qualifications or skills
+- Actionable suggestions to tailor your resume
+•	📌 Relevance Highlights: See the most relevant resume sections that influenced the AI’s analysis, each with individual relevance scores.
 🛠️ Technologies Used
-Python: The core programming language.
-
-Streamlit: For building the interactive web user interface.
-
-Langchain: Framework for orchestrating LLM interactions, document loading, and text processing.
-
-Hugging Face sentence-transformers: For generating high-quality semantic embeddings from text (runs locally, no API key needed).
-
-FAISS: For efficient in-memory similarity search over resume content.
-
-pypdf: For extracting text from PDF resume files.
-
-Google Gemini API (gemini-2.0-flash): The LLM used for generative analysis and score calculation (free tier available).
-
+•	Python – Core language
+•	Streamlit – UI for interactive web app
+•	LangChain – LLM orchestration and text processing
+•	Hugging Face sentence-transformers – Local semantic embeddings
+•	FAISS – Fast in-memory similarity search
+•	pypdf – PDF text extraction
+•	Google Gemini API (gemini-2.0-flash) – Free-tier LLM for analysis and scoring
 🚀 Getting Started
-Follow these instructions to set up and run the application locally or deploy it online.
-
-Prerequisites
-Python 3.8+ installed on your system.
-
-A Google account to obtain a Gemini API key.
-
-Local Setup & Run
-Clone the Repository:
+✅ Prerequisites
+• Python 3.8+
+• Google account for Gemini API key
+🔧 Local Setup
+1.	Clone the repository:
 
 git clone https://github.com/YOUR_USERNAME/YOUR_REPOSITORY_NAME.git
 cd YOUR_REPOSITORY_NAME
-
-(Replace YOUR_USERNAME and YOUR_REPOSITORY_NAME with your actual GitHub details.)
-
-Create a Virtual Environment:
+2.	Create and activate a virtual environment:
 
 python -m venv venv
-
-Activate the Virtual Environment:
-
-macOS / Linux:
-
+# Activate
+# macOS / Linux
 source venv/bin/activate
-
-Windows (Command Prompt):
-
+# Windows CMD
 .\venv\Scripts\activate
-
-Windows (PowerShell):
-
+# Windows PowerShell
 .\venv\Scripts\Activate.ps1
-
-Install Dependencies:
-Make sure you have a requirements.txt file in your repository with the following content:
-
-streamlit
-langchain-community>=0.0.30
-langchain-core>=0.1.30
-langchain-google-genai>=0.0.10
-langchain-huggingface
-pypdf
-faiss-cpu
-sentence-transformers
-google-generativeai
-
-Then install them:
+3.	Install dependencies:
 
 pip install -r requirements.txt
+4.	Get your Gemini API key from Google AI Studio and copy it.
+5.	Set the API key as an environment variable:
 
-Get Your Google Gemini API Key:
-
-Go to Google AI Studio and log in with your Google account.
-
-Follow the prompts to "Get API key in Google AI Studio" and create a new API key.
-
-Copy the generated key.
-
-Set the API Key as an Environment Variable:
-Before running the app, set your API key in your terminal session. Replace "YOUR_ACTUAL_GOOGLE_API_KEY_HERE" with your copied key.
-
-macOS / Linux:
-
+# macOS / Linux
 export GOOGLE_API_KEY="YOUR_ACTUAL_GOOGLE_API_KEY_HERE"
 
-Windows (Command Prompt):
-
+# Windows CMD
 set GOOGLE_API_KEY="YOUR_ACTUAL_GOOGLE_API_KEY_HERE"
 
-Windows (PowerShell):
-
+# Windows PowerShell
 $env:GOOGLE_API_KEY="YOUR_ACTUAL_GOOGLE_API_KEY_HERE"
-
-Run the Streamlit App:
+6.	Run the app:
 
 streamlit run app.py
 
-The application will open in your default web browser (usually at http://localhost:8501).
+Visit http://localhost:8501 in your browser.
+🌐 Online Deployment with Streamlit Community Cloud
+7.	Prepare your GitHub repo with app.py and requirements.txt committed.
+8.	Secure your API key:
 
-Online Deployment (Streamlit Community Cloud)
-You can deploy this application for free using Streamlit Community Cloud.
+- Go to Streamlit Cloud
+- Log in with GitHub
+- Go to Settings > Secrets
+- Add a new secret with key: GOOGLE_API_KEY and your Gemini API key as value.
+9.	Deploy:
 
-Ensure GitHub Repository is Ready:
-
-Your app.py and requirements.txt files must be committed and pushed to a public GitHub repository.
-
-Securely Add Your API Key:
-
-Do NOT include your GOOGLE_API_KEY directly in your app.py file or secrets.toml within your public GitHub repository.
-
-Go to share.streamlit.io and sign in with your GitHub account.
-
-When deploying your app, or in its settings, navigate to the "Advanced settings" or "Secrets" section.
-
-Click "Add a new secret".
-
-Set the Key as GOOGLE_API_KEY and the Value as your actual Gemini API key. Save this secret.
-
-Deploy the App:
-
-On the Streamlit Community Cloud dashboard, click "New app".
-
-Select your GitHub repository, the correct branch (e.g., main), and the path to your app.py file.
-
-Confirm your GOOGLE_API_KEY is set in the secrets.
-
-Click "Deploy!".
-
-Streamlit Community Cloud will automatically build and host your application, providing you with a public URL. Any future pushes to your selected GitHub branch will automatically update your deployed app.
-
-👩‍💻 Usage
-Upload Your Resume: Click the "Browse files" button to upload your resume in PDF format.
-
-Paste Job Description: Copy and paste the full job description text into the provided text area.
-
-Analyze Match: Click the "Analyze Match" button.
-
-View Results: The app will display an overall match score, a detailed AI-generated analysis (strengths, areas for improvement, and tailoring suggestions), and the most relevant sections of your resume that the AI considered.
-
+- Click 'New app'
+- Select repo, branch, and path
+- Click 'Deploy!'
+👩‍💻 How to Use
+•	Upload Resume – Upload a PDF of your resume.
+•	Paste Job Description – Paste the text of a job posting.
+•	Click “Analyze Match” – Let the AI evaluate the alignment.
+•	View Results – See your match score, strengths, gaps, and suggestions.
 🤝 Contributing
-Feel free to fork this repository, open issues, or submit pull requests. Any contributions to improve the bot's functionality, accuracy, or user experience are welcome!
+Contributions are welcome! Feel free to:
+- Open issues
+- Fork and improve the repo
+- Submit pull requests
 
+Enhancements to accuracy, functionality, and UX are greatly appreciated.
 📄 License
-This project is open-source and available under the MIT License (or choose your preferred open-source license).
+This project is licensed under the MIT License. You’re free to use, modify, and distribute it as you like.
